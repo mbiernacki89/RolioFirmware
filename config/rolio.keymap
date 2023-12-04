@@ -104,6 +104,21 @@
             flavor = "tap-preferred";
             bindings = <&w_bsp_word>, <&kp>;
         };
+        // Mac OS Word Seek
+        mac_word_seek: mac_word_seek {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "MAC_WORD_SEEK";
+            #sensor-binding-cells = <0>;
+            bindings = <&prev_word>, <&next_word>;
+        };
+        //Windows Word Seek
+        win_word_seek: win_word_seek {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "WIN_WORD_SEEK";
+            #sensor-binding-cells = <0>;
+            tap-ms = <20>;
+            bindings = <&w_prev_word>, <&w_next_word>;
+        };
         //Mac OS Zoom
         mac_zoom: mac_zoom {
             compatible = "zmk,behavior-sensor-rotate";
@@ -231,6 +246,55 @@
                 , <&macro_release &kp LCTRL>
                 ;
         };
+        // Word seek macros
+        prev_word: prev_word {
+            label = "PREV_WORD";
+            compatible = "zmk,behavior-macro";
+            wait-ms = <2>;
+            tap-ms = <20>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp LEFT>
+                , <&macro_release &kp LALT>
+                ;
+        };
+        next_word: next_word {
+            label = "NEXT_WORD";
+            compatible = "zmk,behavior-macro";
+            wait-ms = <2>;
+            tap-ms = <20>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp RIGHT>
+                , <&macro_release &kp LALT>
+                ;
+        };
+        w_prev_word: w_prev_word {
+            label = "W_PREV_WORD";
+            compatible = "zmk,behavior-macro";
+            wait-ms = <2>;
+            tap-ms = <20>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp LEFT>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+        w_next_word: w_next_word {
+            label = "W_NEXT_WORD";
+            compatible = "zmk,behavior-macro";
+            wait-ms = <2>;
+            tap-ms = <20>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp RIGHT>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
         // Zoom macros
         zoom_in: zoom_in {
             label = "ZOOM_IN";
@@ -300,33 +364,33 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            label = "Mac OS";
+            label = "Windows";
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
             bindings = <
 //---------------------------------------------------------------+                            +---------------------------------------------------------------//
 //          |         |          |           |          |        |                            |       |       |           |         |          |           // 
-  &kp GRAVE   &kp Q     &kp W      &kp E        &kp R     &kp T                                 &kp Y   &kp U     &kp I      &kp O     &kp P     &backspace_word 0 BSPC
+  &kp GRAVE   &kp Q     &kp W      &kp E        &kp R     &kp T                                 &kp Y   &kp U     &kp I      &kp O     &kp P     &w_backspace_word 0 BSPC
 //          |         |          |           |          |        |                            |       |       |           |         |          |           //
   &kp TAB     &kp A     &kp S      &kp D        &kp F     &kp G                                 &kp H   &kp J     &kp K      &kp L    &kp SEMI    &kp SQT
 //          |         |          |           |          |        +-----------+    +-----------|       |       |           |         |          |           //
-    &td2      &kp Z     &kp X      &kp C        &kp V     &kp B     &kp F16          &kp F17    &kp N   &kp M   &kp COMMA   &kp DOT    &kp FSLH     &td3
+ &kp LSHIFT   &kp Z     &kp X      &kp C        &kp V     &kp B     &kp F16          &kp F17    &kp N   &kp M   &kp COMMA   &kp DOT    &kp FSLH   &kp RSHIFT
 //--------------------|          |           |          |        |           |    |           |       |       |           |--------------------------------//  
-                        &kp LALT   &kp LCTRL     &td4     &td0     &kp ENTER        &kp SPACE   &td1    &td5    &kp RCTRL   &kp DEL
+                        &td4       &kp LALT   &kp LCTRL   &td0     &kp ENTER        &kp SPACE   &td1  &kp RCTRL  &kp RALT   &kp DEL
 //                    +----------|-----------|----------|--------------------+    +-----------|-------|--------|-----------|---------+                      //
             >;
         };
 
-        f_keys_layer {
+        windows_fkeys_layer {
             label = "F Keys";
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &mac_zoom>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &win_zoom>;
             bindings = <
 //-------------------------------------------------------------------------------+                           +-------------------------------------------------------------------//
 //          |            |            |              |            |              |                           |          |          |           |         |           |           // 
   &kp ESCAPE    &kp F1      &kp F2       &kp F3          &kp F4        &kp F5                                   &kp F6    &kp F7      &kp F8     &kp F9    &kp F10     &kp F11
 //          |            |            |              |            |              |                           |          |          |           |         |           |           // 
-  &unindent   &bt BT_PRV   &bt BT_NXT   &kp C_PREV     &kp C_PP     &kp C_NEXT                                 &lstart     &kp UP     &lend      &scrsh    &kp PG_UP   &kp F12
+  &unindent   &bt BT_PRV   &bt BT_NXT   &kp C_PREV     &kp C_PP     &kp C_NEXT                                 &kp HOME     &kp UP    &kp END   &kp PSCRN    &kp PG_UP   &kp F12
 //          |            |            |              |            |              +-------------+    +--------+          |          |           |         |           |           // 
-    &trans    &bl BL_TOG  &bl BL_SET 2  &kp C_VOL_DN   &kp C_MUTE   &kp C_VOL_UP    &kp C_MUTE     &reset_zoom &kp LEFT   &kp DOWN   &kp RIGHT   &scrcr    &kp PG_DN   &kp F13
+    &trans    &bl BL_TOG  &bl BL_SET 2  &kp C_VOL_DN   &kp C_MUTE   &kp C_VOL_UP    &kp C_MUTE    &w_reset_zoom &kp LEFT   &kp DOWN   &kp RIGHT   &wscrcr    &kp PG_DN   &kp F13
 //-----------------------|            |              |            |              |             |    |        |          |          |           |         |-----------------------//  
                             &trans         &trans       &trans        &trans        &trans            &trans    &trans    &trans      &trans     &trans
 //                       +------------|--------------|------------|--------------|-------------+    +--------|----------|----------|-----------|---------+                       //
@@ -334,9 +398,9 @@
 
         };
 
-        numbers_layer {
+        windows_numbers_layer {
             label = "Numbers";
-            sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
+            sensor-bindings = <&inc_dec_kp UP DOWN &win_word_seek>;
             bindings = <
 //-------------------------------------------------------------------------------+                      +----------------------------------------------------------------------------//
 //          |          |                |                 |          |           |                      |           |               |          |          |               |          // 
@@ -351,13 +415,13 @@
             >;
         };
 
-        windows_default_layer {
-            label = "Windows";
+        mac_default_layer {
+            label = "Mac OS";
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
             bindings = <
 //-----------------------------------------------------------------+                        +------------------------------------------------------------------//
 //          |          |          |          |          |          |                        |          |          |          |          |          |           // 
-    &trans     &trans     &trans     &trans     &trans     &trans                              &trans     &trans     &trans     &trans     &trans     &w_backspace_word 0 BSPC
+    &trans     &trans     &trans     &trans     &trans     &trans                              &trans     &trans     &trans     &trans     &trans     &backspace_word 0 BSPC
 //          |          |          |          |          |          |                        |          |          |          |          |          |           //
     &trans     &trans     &trans     &trans     &trans     &trans                              &trans     &trans     &trans     &trans     &trans     &trans
 //          |          |          |          |          |          +--------+     +---------|          |          |          |          |          |           // 
@@ -368,26 +432,26 @@
             >;
         };
 
-        windows_fkeys_layer {
+        mac_fkeys_layer {
             label = "F Keys";
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &win_zoom>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &mac_zoom>;
             bindings = <
 //-----------------------------------------------------------------+                        +------------------------------------------------------------------//
 //          |          |          |          |          |          |                        |          |          |          |          |          |           // 
     &trans     &trans     &trans     &trans     &trans     &trans                              &trans     &trans     &trans     &trans     &trans     &trans
 //          |          |          |          |          |          |                        |          |          |          |          |          |           //
-    &trans     &trans     &trans     &trans     &trans     &trans                             &kp HOME    &trans     &kp END  &kp PSCRN    &trans     &trans
+    &trans     &trans     &trans     &trans     &trans     &trans                             &lstart     &trans     &lend      &scrsh    &trans     &trans
 //          |          |          |          |          |          +--------+     +---------|          |          |          |          |          |           // 
-    &trans     &trans     &trans     &trans     &trans     &trans    &trans      &w_reset_zoom &trans     &trans     &trans     &wscrcr    &trans     &trans
+    &trans     &trans     &trans     &trans     &trans     &trans    &trans       &reset_zoom  &trans     &trans     &trans     &scrcr    &trans     &trans
 //---------------------|          |          |          |          |        |     |         |          |          |          |          |----------------------//
                           &trans     &trans     &trans     &trans    &trans         &trans     &trans     &trans     &trans     &trans
 //                     +----------|----------|----------|----------|--------+     +----------|---------|----------|----------|----------+                      //
             >;
         };
 
-        windows_numbers_layer {
+        mac_numbers_layer {
             label = "Numbers";
-            sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
+            sensor-bindings = <&inc_dec_kp UP DOWN &mac_word_seek>;
             bindings = <
 //-----------------------------------------------------------------+                        +------------------------------------------------------------------//
 //          |          |          |          |          |          |                        |          |          |          |          |          |           // 
