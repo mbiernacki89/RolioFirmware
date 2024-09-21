@@ -1,0 +1,28 @@
+/ {    
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;
+            quick-tap-ms = <400>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
+
+        hmq: homerow_quote {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;
+            quick-tap-ms = <400>;
+            flavor = "balanced";
+            bindings = <&kp>, <&qtg>;
+        };
+
+        qtg: quote_grave {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SQT>, <&kp GRAVE>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+    };
+};

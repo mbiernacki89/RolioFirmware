@@ -1,0 +1,25 @@
+#define BRI_UP C_BRI_UP
+#define BRI_DN C_BRI_DN
+#define VOL_UP C_VOL_UP
+#define VOL_DN C_VOL_DN
+#define MUTE   C_MUTE
+
+#define LSH(k1) &hm LSHIFT k1
+#define LCH(k1) &hm LCTRL k1
+#define LAH(k1) &hm LALT k1
+#define LGH(k1) &hm LGUI k1
+
+#define RSH(k1) &hm RSHIFT k1
+#define RCH(k1) &hm RCTRL k1
+#define RAH(k1) &hm RALT k1
+#define RGH(k1) &hm RGUI k1
+
+#define LGC LG(LCTRL)
+#define RGC RG(RCTRL)
+
+#define LGCA LG(LC(LALT))
+#define RGCA RG(RC(RALT))
+
+#define RP &key_repeat
+
+#define RCHQ &hmq RCTRL 0
