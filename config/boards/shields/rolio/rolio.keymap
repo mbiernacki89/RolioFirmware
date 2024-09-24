@@ -38,7 +38,7 @@
             /*                                                                        ╰───────────╯   ╰───────────╯                                                                        */
             >;
 
-            sensor-bindings = <&inc_dec_kp BRI_UP BRI_DN &inc_dec_kp VOL_UP VOL_DN>;
+            sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp UP DOWN>;
         };
 
         navigation {
@@ -49,7 +49,7 @@
             /*├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                           ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤*/
                 &trans      &kp LCTRL   &kp LALT    &kp LGUI    &kp LSHIFT  &none     /*                         */ &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &none       &trans
             /*├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤───────────╮   ╭───────────├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤*/
-                &trans      &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &none       &none       &bl BL_TOG/* */ &kp C_PP    &kp HOME    &kp PG_DN   &kp PG_UP   &kp END     &none       &trans
+                &trans      &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &none       &none       &bl BL_TOG/* */ &kp MUTE    &kp HOME    &kp PG_DN   &kp PG_UP   &kp END     &none       &trans
             /*╰───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────╮   ╭───────────┼───────────┼───────────┼───────────┼───────────┼───────────┴───────────╯*/
                                         &trans      &trans      &trans      &trans      &trans    /* */ &trans      &trans      &trans      &trans      &trans
             /*                        ╰───────────┴───────────┴───────────┴───────────┤           │   │           ├───────────┴───────────┴───────────┴───────────╯                        */
@@ -63,11 +63,11 @@
             label = "SYMBOLS";
             bindings = <
             /*╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮                           ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮*/
-                &trans      &euro       &kp MINUS   &kp PLUS    &kp PIPE    &kp CARET /*                         */ &kp LBRC    &kp RBRC    &kp LT      &kp GT      &kp GRAVE   &trans
+                &trans      &euro       &kp MINUS   &kp PLUS    &kp PIPE    &kp CARET /*                         */ &kp RBRC    &kp LBRC    &kp LT      &kp GT      &kp GRAVE   &trans
             /*├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                           ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤*/
-                &trans      LCH(TILDE)  LAH(FSLH)   LGH(ASTRK)  LSH(BSLH)   &kp PRCNT /*                         */ &kp LPAR    RSH(RPAR)   RGH(AT)     RAH(HASH)   RCH(DQT)    &trans
+                &trans      LCH(TILDE)  LAH(FSLH)   LGH(ASTRK)  LSH(BSLH)   &kp PRCNT /*                         */ &kp RPAR    RSH(LPAR)   RGH(AT)     RAH(HASH)   RCH(DQT)    &trans
             /*├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤───────────╮   ╭───────────├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤*/
-                &trans      &pound      &kp UNDER   &kp EQUAL   &kp AMPS    &kp DLLR    &none     /* */ &none       &kp LBKT    &kp RBKT    &kp SEMI    &kp COLON   &kp EXCL    &trans
+                &trans      &pound      &kp UNDER   &kp EQUAL   &kp AMPS    &kp DLLR    &none     /* */ &none       &kp RBKT    &kp LBKT    &kp SEMI    &kp COLON   &kp EXCL    &trans
             /*╰───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────╮   ╭───────────┼───────────┼───────────┼───────────┼───────────┼───────────┴───────────╯*/
                                         &trans      &trans      &trans      &trans      &trans    /* */ &trans      &trans      &trans      &trans      &trans
             /*                        ╰───────────┴───────────┴───────────┴───────────┤           │   │           ├───────────┴───────────┴───────────┴───────────╯                        */
