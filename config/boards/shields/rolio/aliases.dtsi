@@ -4,6 +4,11 @@
 #define VOL_DN C_VOL_DN
 #define MUTE   C_MUTE
 
+#define LMEH LC(LA(LSHIFT))
+#define LHPR LC(LA(LG(LSHIFT)))
+#define LHUH LG(LC(LALT))
+#define LGTRL LG(LCTRL)
+
 #define LSH(k1) &hm LSHIFT k1
 #define LCH(k1) &hm LCTRL k1
 #define LAH(k1) &hm LALT k1
@@ -14,12 +19,7 @@
 #define RAH(k1) &hm RALT k1
 #define RGH(k1) &hm RGUI k1
 
-#define LGC LG(LCTRL)
-#define RGC RG(RCTRL)
-
-#define LGCA LG(LC(LALT))
-#define RGCA RG(RC(RALT))
-
-#define RP &key_repeat
-
-#define RCHQ &hmq RCTRL 0
+#define HPR(k1) &hm LHPR k1
+#define MEH(k1) &hm LMEH k1
+#define HUH(k1) &hm LHUH k1
+#define GTR(k1) &hm LGTRL k1

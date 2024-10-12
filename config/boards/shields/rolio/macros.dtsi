@@ -18,6 +18,52 @@
                 , <&macro_release &kp LSHIFT>
                 ;
         };
+        // AEROSPACE WORKSPACES
+        terminal: terminal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGTRL>
+                , <&macro_tap &kp T>
+                , <&macro_release &kp LGTRL>
+                ;
+        };
+        browser: browser {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGTRL>
+                , <&macro_tap &kp B>
+                , <&macro_release &kp LGTRL>
+                ;
+        };
+        music: music {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGTRL>
+                , <&macro_tap &kp S>
+                , <&macro_release &kp LGTRL>
+                ;
+        };
+        chat: chat {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGTRL>
+                , <&macro_tap &kp M>
+                , <&macro_release &kp LGTRL>
+                ;
+        };
+        code: code {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGTRL>
+                , <&macro_tap &kp C>
+                , <&macro_release &kp LGTRL>
+                ;
+        };
         // SYSTEM
         sptlght: sptlght {
             compatible = "zmk,behavior-macro";
@@ -36,26 +82,6 @@
                 , <&macro_press &kp LCTRL>
                 , <&macro_tap &kp Q>
                 , <&macro_release &kp LCTRL>
-                , <&macro_release &kp LGUI>
-                ;
-        };
-        term: term {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LGUI>
-                , <&macro_tap &kp NUBS>
-                , <&macro_release &kp LGUI>
-                ;
-        };
-        termf: termf {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LGUI>
-                , <&macro_press &kp LSHIFT>
-                , <&macro_tap &kp NUBS>
-                , <&macro_release &kp LSHIFT>
                 , <&macro_release &kp LGUI>
                 ;
         };
