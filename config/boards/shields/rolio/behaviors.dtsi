@@ -24,5 +24,26 @@
             bindings = <&kp SQT>, <&kp GRAVE>;
             mods = <(MOD_LALT|MOD_RALT)>;
         };
+
+        com2: comma_semicolon {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp SEMI>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        dot2: dot_colon {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp COLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        quex: question_exclamation {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp QMARK>, <&kp EXCL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 };

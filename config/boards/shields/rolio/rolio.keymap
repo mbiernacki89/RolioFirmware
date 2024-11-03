@@ -14,11 +14,11 @@
 #include "behaviors.dtsi"
 #include "macros.dtsi"
 
-#define QWR 0
-#define NAV 1
-#define SYM 2
-#define NUM 3
-#define UTL 4
+#define QWERTY 0
+#define ARROWS 1
+#define SYMBOL 2
+#define FUNC  3
+#define SET 4
 
 / {
     keymap {
@@ -28,29 +28,29 @@
             label = "QWERTY";
             bindings = <
             /*╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮                           ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮*/
-                &kp ESC     &kp Q       &kp W       &kp E       &kp R       &kp T     /*                         */ &kp Y       &kp U       &kp I       &kp O       &kp P       &kp BSPC
+                &kp LBRC    &kp Q       &kp W       &kp E       &kp R       &kp T     /*                         */ &kp Y       &kp U       &kp I       &kp O       &kp P       &kp RBKT
             /*├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                           ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤*/
-                &kp TAB     LCH(A)      LAH(S)      LGH(D)      LSH(F)      HPR(G)    /*                         */ HPR(H)      RSH(J)      RGH(K)      RAH(L)      RCH(SQT)    &kp RET
+                &kp LPAR    LCH(A)      LAH(S)      LGH(D)      LSH(F)      HPR(G)    /*                         */ HPR(H)      RSH(J)      RGH(K)      RAH(L)      RCH(SQT)    &kp RPAR
             /*├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤───────────╮   ╭───────────├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤*/
-                &caps_word  &kp Z       GTR(X)      HUH(C)      MEH(V)      &kp B       &none     /* */ &none       &kp N       MEH(M)      HUH(COMMA)  GTR (DOT)   &kp QMARK   &kp DEL
+                &kp LBKT    &kp Z       &kp X       &kp C       MEH(V)      &kp B       &none     /* */ &kp MUTE    &kp N       MEH(M)      &com2       &dot2       &quex       &kp RBKT
             /*╰───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────╮   ╭───────────┼───────────┼───────────┼───────────┼───────────┼───────────┴───────────╯*/
-                                        &terminal   &mo UTL     &mo NUM     &mo NAV     &kp LSHIFT/* */ &kp SPACE   &mo SYM     &kp LALT    &kp BSPC    &kp DEL
+                                        &mo SET     &kp ESC     &kp TAB     &mo ARROWS  &kp RET   /* */ &kp SPACE   &mo SYMBOL  &kp BSPC    &kp DEL     &mo FUNC
             /*                        ╰───────────┴───────────┴───────────┴───────────┤           │   │           ├───────────┴───────────┴───────────┴───────────╯                        */
             /*                                                                        ╰───────────╯   ╰───────────╯                                                                        */
             >;
 
-            sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp UP DOWN>;
+            sensor-bindings = <&inc_dec_kp BRI_UP BRI_DN &inc_dec_kp VOL_UP VOL_DN>;
         };
 
-        navigation {
-            label = "NAV";
+        arrows {
+            label = "ARROWS";
             bindings = <
             /*╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮                           ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮*/
                 &none       &terminal   &browser    &chat       &music      &code     /*                         */ &none       &none       &none       &none       &none       &lock
             /*├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                           ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤*/
                 &none       &kp LCTRL   &kp LALT    &kp LGUI    &kp LSHIFT  &kp LHPR  /*                         */ &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &none       &none 
             /*├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤───────────╮   ╭───────────├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤*/
-                &none       &none       &kp LGTRL   &kp LHUH    &kp LMEH    &none       &none     /* */ &kp MUTE    &kp HOME    &kp PG_DN   &kp PG_UP   &kp END     &none       &none 
+                &none       &none       &none       &none       &kp LMEH    &none       &none     /* */ &kp MUTE    &kp HOME    &kp PG_DN   &kp PG_UP   &kp END     &none       &none 
             /*╰───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────╮   ╭───────────┼───────────┼───────────┼───────────┼───────────┼───────────┴───────────╯*/
                                         &trans      &trans      &trans      &trans      &trans    /* */ &trans      &trans      &trans      &trans      &trans
             /*                        ╰───────────┴───────────┴───────────┴───────────┤           │   │           ├───────────┴───────────┴───────────┴───────────╯                        */
@@ -62,13 +62,13 @@
 
         symbols {
             label = "SYMBOLS";
-            bindings = <
+            bindings = <  
             /*╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮                           ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮*/
-                &euro       &kp NUBS    &kp MINUS   &kp PLUS    &kp PIPE    &kp CARET /*                         */ &kp RBRC    &kp LBRC    &kp LT      &kp GT      &kp GRAVE   &none 
+                &kp NUBS    &kp N1      &kp N2      &kp N3      &kp N4      &kp N5    /*                         */ &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp NUHS
             /*├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                           ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤*/
-                &pound      LCH(TILDE)  LAH(FSLH)   LGH(ASTRK)  LSH(BSLH)   HPR(PRCNT)/*                         */ HPR(RPAR)   RSH(LPAR)   RGH(AT)     RAH(HASH)   RCH(DQT)    &none 
+                &euro       LCH(TILDE)  LAH(FSLH)   LGH(ASTRK)  LSH(MINUS)  HPR(PLUS) /*                         */ HPR(AT)     RSH(CARET)  RGH(AMPS)   RAH(LT)     RCH(GRAVE)  &none 
             /*├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤───────────╮   ╭───────────├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤*/
-                &none       &kp NUHS    GTR(UNDER)  HUH(EQUAL)  MEH(AMPS)   &kp DLLR    &none     /* */ &none       &kp RBKT    MEH(LBKT)   HUH(SEMI)   GTR(COLON)  &kp EXCL    &none 
+                &pound      &none       &kp BSLH    &kp PRCNT   MEH(UNDER)  &kp EQUAL   &none     /* */ &none       &kp HASH    MEH(DLLR)   &kp PIPE    &kp GT      &none       &none 
             /*╰───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────╮   ╭───────────┼───────────┼───────────┼───────────┼───────────┼───────────┴───────────╯*/
                                         &trans      &trans      &trans      &trans      &trans    /* */ &trans      &trans      &trans      &trans      &trans
             /*                        ╰───────────┴───────────┴───────────┴───────────┤           │   │           ├───────────┴───────────┴───────────┴───────────╯                        */
@@ -78,15 +78,15 @@
             sensor-bindings = <&inc_dec_kp BRI_UP BRI_DN &inc_dec_kp VOL_UP VOL_DN>;
         };
 
-        numbers {
-            label = "NUMBERS";
+        function {
+            label = "FN KEYS";
             bindings = <
             /*╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮                           ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮*/
                 &none       &kp F1      &kp F2      &kp F3      &kp F4      &kp F5    /*                         */ &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
             /*├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                           ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤*/
-                &none       LCH(N1)     LAH(N2)     LGH(N3)     LSH(N4)     HPR(N5)   /*                         */ HPR(N6)     RSH(N7)     RGH(N8)     RAH(N9)     RCH(N0)     &kp F12
+                &none       &kp LCTRL   &kp LALT    &kp LGUI    &kp LSHIFT  &kp LHPR  /*                         */ &kp LHPR    &kp RSHIFT  &kp RGUI    &kp RALT    &kp RCTRL   &kp F12
             /*├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤───────────╮   ╭───────────├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤*/
-                &none       &none       &kp LGTRL   &kp LHUH    &kp LMEH    &none       &none     /* */ &none       &none       &kp LMEH    &kp LHUH    &kp LGTRL   &none       &none
+                &none       &none       &none       &none       &kp LMEH    &none       &none     /* */ &none       &none       &kp LMEH    &none       &none       &none       &none
             /*╰───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────╮   ╭───────────┼───────────┼───────────┼───────────┼───────────┼───────────┴───────────╯*/
                                         &trans      &trans      &trans      &trans      &trans    /* */ &trans      &trans      &trans      &trans      &trans
             /*                        ╰───────────┴───────────┴───────────┴───────────┤           │   │           ├───────────┴───────────┴───────────┴───────────╯                        */
@@ -96,8 +96,8 @@
             sensor-bindings = <&inc_dec_kp BRI_UP BRI_DN &inc_dec_kp VOL_UP VOL_DN>;
         };
 
-        utils {
-            label = "UTILS";
+        settings {
+            label = "SETTINGS";
             bindings = <
             /*╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮                           ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮*/
                 &none       &kp BRI_DN  &kp BRI_UP  &kp VOL_DN  &kp VOL_UP  &kp MUTE  /*                         */ &none       &kp C_PREV  &kp C_PP    &kp C_NEXT  &none       &lock
