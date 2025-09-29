@@ -1,0 +1,38 @@
+#define __ &trans
+#define xx &none
+
+#define BRI_UP C_BRI_UP
+#define BRI_DN C_BRI_DN
+#define VOL_UP C_VOL_UP
+#define VOL_DN C_VOL_DN
+#define MUTE   C_MUTE
+
+#define M_L MOVE_LEFT
+#define M_D MOVE_DOWN
+#define M_U MOVE_UP
+#define M_R MOVE_RIGHT
+
+#define LMEH LC(LA(LSHIFT))
+#define LHPR LC(LA(LG(LSHIFT)))
+
+#define RMEH RC(RA(RSHIFT))
+#define RHPR RC(RA(RG(RSHIFT)))
+
+#define LSH(k1) &hm LSHIFT k1
+#define LCH(k1) &hm LCTRL k1
+#define LAH(k1) &hm LALT k1
+#define LGH(k1) &hm LGUI k1
+
+#define LMH(k1) &hm LMEH k1
+#define LHH(k1) &hm LHPR k1
+
+#define RSH(k1) &hm RSHIFT k1
+#define RCH(k1) &hm RCTRL k1
+#define RAH(k1) &hm RALT k1
+#define RGH(k1) &hm RGUI k1
+
+#define RMH(k1) &hm RMEH k1
+#define RHH(k1) &hm RHPR k1
+
+#define RCHQTG &hqtg RCTRL 0
+#define LCHCC &hcc LHPR 0

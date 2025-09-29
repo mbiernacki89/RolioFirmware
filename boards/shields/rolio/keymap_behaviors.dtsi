@@ -1,91 +1,94 @@
 / {
-
     behaviors {
-        // Toggle Numbers layer
-        td1: Toggle_Numpad_MacOS {
-            display-name = "MacOS Symbols Tap Dance";
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <300>;
-            bindings = <&mo M_SYMBOLS>, <&tog NUMPAD>;
+
+        // hold-taps 
+        hm: homerow_mods {
+            display-name = "Homerow mods";
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;
+            quick-tap-ms = <400>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
         };
-        td2: Toggle_Numpad_Windows {
-            display-name = "Windows Symbols Tap Dance";
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <300>;
-            bindings = <&mo W_SYMBOLS>, <&tog NUMPAD>;
+
+        hqtg: homerow_quote {
+            display-name = "Homerow mods for quex";
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;
+            quick-tap-ms = <400>;
+            flavor = "balanced";
+            bindings = <&kp>, <&qtg>;
         };
-        //Backlight Brightness
-        bri_adjust: Brightness_Scroller {
-            label = "Scroller Brightness Adjust";
+
+        hcc: homerow_comcolon {
+            display-name = "Homerow mod for comcolon";
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;
+            quick-tap-ms = <400>;
+            flavor = "balanced";
+            bindings = <&kp>, <&comcolon>;
+        };
+
+        // mod-morphs
+
+        qtg: quote_grave {
+            display-name = "LALT + SQT = GRAVE";
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SQT>, <&kp GRAVE>;
+            mods = <(MOD_LALT)>;
+        };
+
+        comcolon: comma_semicolon {
+            display-name = "LSFT + COMMA = SEMI";
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp SEMI>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        dotcolon: dot_colon {
+            display-name = "LSFT + DOT = COLON";
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp COLON>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        quex: question_exclamation {
+            display-name = "LSFT + QMARK = EXCL";
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp QMARK>, <&kp EXCL>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        // sensors
+
+        backlight_ctrl: backlight_ctrl {
+            label = "Backlight control";
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&bl BL_INC>, <&bl BL_DEC>;
         };
-        // Encoder to Mouse Scroll
-        scroll_up_down: Mouse_Scroller {
-            label = "Scroller As Mouse Wheel";
+
+        scroll_y: scroll_y {
+            label = "Mouse scroll vertical";
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
             tap-ms = <20>;
         };
-        // Hold to choose BT profile or tap for key press
-        btkp: btsel_or_kp {
-            display-name = "Bluetooth Select Or Key Press";
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            require-prior-idle-ms = <125>;
-            bindings = <&btsel>, <&kp>;
-        };
-        // Hold to select output or tap for key press
-        usb_tog: usb_tog {
-            display-name = "Set Output Or Key Press";
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            require-prior-idle-ms = <125>;
-            bindings = <&out>, <&kp>;
-        };
-        // Hold to clear BT connection or tap for key press
-        btclr_kp: btclr_kp {
-            display-name = "Bluetooth Profile Clear Or Key Press";
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <2000>;
-            bindings = <&btclrmacro>, <&kp>;
-        };
-        // Small volume steps for MacOS
-        mac_vol: Mac_Volume_Scroller {
-            label = "Scroller MacOS Small Volume Steps";
+
+        scroll_x: scroll_x {
+            label = "Mouse scroll horizontal";
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&kp LS(LA(C_VOL_UP))>, <&kp LS(LA(C_VOL_DN))>;
-        };
-        // Behave like "mod-tap" without the keyrepeat
-        mtos: mtos {
-            display-name = "Mod-Tap (No Repeat)";
-            compatible = "zmk,behavior-hold-tap";
-            tapping-term-ms = <135>;
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            bindings = <&kpss>, <&kp>;
-        };
-        // Shift / Capsword
-         scw: scw {
-            display-name = "Hold Shift / Tap Capsword";
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&kp>, <&caps_word>;
+            bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+            tap-ms = <20>;
         };
     };
 
