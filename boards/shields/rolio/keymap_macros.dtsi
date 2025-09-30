@@ -28,9 +28,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LMEH>
+                = <&macro_press &kp MEH>
                 , <&macro_tap &kp F>
-                , <&macro_release &kp LMEH>
+                , <&macro_release &kp MEH>
                 ;
         };
         terminal: terminal {
@@ -38,9 +38,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LMEH>
+                = <&macro_press &kp MEH>
                 , <&macro_tap &kp T>
-                , <&macro_release &kp LMEH>
+                , <&macro_release &kp MEH>
                 ;
         };
         browser: browser {
@@ -48,9 +48,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LMEH>
+                = <&macro_press &kp MEH>
                 , <&macro_tap &kp B>
-                , <&macro_release &kp LMEH>
+                , <&macro_release &kp MEH>
                 ;
         };
         music: music {
@@ -58,9 +58,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LMEH>
+                = <&macro_press &kp MEH>
                 , <&macro_tap &kp M>
-                , <&macro_release &kp LMEH>
+                , <&macro_release &kp MEH>
                 ;
         };
         chat: chat {
@@ -68,9 +68,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LMEH>
+                = <&macro_press &kp MEH>
                 , <&macro_tap &kp C>
-                , <&macro_release &kp LMEH>
+                , <&macro_release &kp MEH>
                 ;
         };
         editor: editor {
@@ -78,9 +78,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LMEH>
+                = <&macro_press &kp MEH>
                 , <&macro_tap &kp E>
-                , <&macro_release &kp LMEH>
+                , <&macro_release &kp MEH>
                 ;
         };
         game: game {
@@ -88,9 +88,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LMEH>
+                = <&macro_press &kp MEH>
                 , <&macro_tap &kp G>
-                , <&macro_release &kp LMEH>
+                , <&macro_release &kp MEH>
                 ;
         };
         x0: x0 {
@@ -98,9 +98,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LMEH>
+                = <&macro_press &kp MEH>
                 , <&macro_tap &kp N0>
-                , <&macro_release &kp LMEH>
+                , <&macro_release &kp MEH>
                 ;
         };
         x1: x1 {
@@ -108,9 +108,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LMEH>
+                = <&macro_press &kp MEH>
                 , <&macro_tap &kp N1>
-                , <&macro_release &kp LMEH>
+                , <&macro_release &kp MEH>
                 ;
         };
         x2: x2 {
@@ -118,9 +118,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LMEH>
+                = <&macro_press &kp MEH>
                 , <&macro_tap &kp N2>
-                , <&macro_release &kp LMEH>
+                , <&macro_release &kp MEH>
                 ;
         };
         x3: x3 {
@@ -128,9 +128,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LMEH>
+                = <&macro_press &kp MEH>
                 , <&macro_tap &kp N3>
-                , <&macro_release &kp LMEH>
+                , <&macro_release &kp MEH>
                 ;
         };
 

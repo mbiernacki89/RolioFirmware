@@ -3,6 +3,7 @@
 
         // hold-taps 
         hm: homerow_mods {
+            display-name = "Homerow mods";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <400>;
@@ -12,6 +13,7 @@
         };
 
         hqtg: homerow_quote {
+            display-name = "Homwrow mods for quex";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <400>;
@@ -23,42 +25,48 @@
         // mod-morphs
 
         qtg: quote_grave {
+            display-name = "LALT + SQT = GRAVE";
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp SQT>, <&kp GRAVE>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            mods = <(MOD_LALT)>;
         };
 
         comcolon: comma_semicolon {
+            display-name = "LSFT + COMMA = SEMI";
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp SEMI>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LSFT)>;
         };
 
         dotcolon: dot_colon {
+            display-name = "LSFT + DOT = COLON";
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp DOT>, <&kp COLON>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LSFT)>;
         };
 
         quex: question_exclamation {
+            display-name = "LSFT + QMARK = EXCL";
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp QMARK>, <&kp EXCL>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LSFT)>;
         };
 
         // sensors
 
         backlight_ctrl: backlight_ctrl {
+            label = "Backlight control";
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&bl BL_INC>, <&bl BL_DEC>;
         };
 
         scroll_y: scroll_y {
+            label = "Mouse scroll vertical";
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
@@ -66,6 +74,7 @@
         };
 
         scroll_x: scroll_x {
+            label = "Mouse scroll horizontal";
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
