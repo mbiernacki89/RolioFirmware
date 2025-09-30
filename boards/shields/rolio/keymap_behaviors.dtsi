@@ -13,13 +13,23 @@
         };
 
         hqtg: homerow_quote {
-            display-name = "Homwrow mods for quex";
+            display-name = "Homerow mods for quex";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <400>;
             quick-tap-ms = <400>;
             flavor = "balanced";
             bindings = <&kp>, <&qtg>;
+        };
+
+        hcc: homerow_comcolon {
+            display-name = "Homerow mod for comcolon";
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;
+            quick-tap-ms = <400>;
+            flavor = "balanced";
+            bindings = <&kp>, <&comcolon>;
         };
 
         // mod-morphs
