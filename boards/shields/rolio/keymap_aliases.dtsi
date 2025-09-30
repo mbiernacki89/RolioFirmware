@@ -20,4 +20,6 @@
 #define RAH(k1) &hm RALT k1
 #define RGH(k1) &hm RGUI k1
 
+#define RMH(k1) &hm MEH k1
+
 #define RCHQ &hmq RCTRL 0
