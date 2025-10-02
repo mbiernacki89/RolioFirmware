@@ -29,5 +29,5 @@
 #define RMH(k1) &hm RMEH k1
 #define RHH(k1) &hm RHPR k1
 
-#define RCHQTG &hmq RCTRL 0
-#define RCHCC &hcc MEH 0
+#define RCHQTG &hqtg RCTRL 0
+#define LCHCC &hcc LHPR 0
