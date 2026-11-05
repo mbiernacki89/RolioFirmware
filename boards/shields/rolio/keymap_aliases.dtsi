@@ -7,6 +7,12 @@
 #define VOL_DN C_VOL_DN
 #define MUTE   C_MUTE
 
+#define BT0 &output_bt 0
+#define BT1 &output_bt 1
+#define BT2 &output_bt 2
+#define BT3 &output_bt 3
+#define BT4 &output_bt 4
+
 #define M_L MOVE_LEFT
 #define M_D MOVE_DOWN
 #define M_U MOVE_UP
